@@ -1,6 +1,7 @@
 ---
 - hosts: all
   connection: local
+  become: yes
   
   tasks:
     - name: Install epel-release
@@ -10,3 +11,9 @@
     - name: Install varnish packages
       yum:
           name: varnish
+
+    - name: start varnish service
+      service:
+          name: varnish
+          state: running
+          enabled: yes
