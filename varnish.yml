@@ -1,0 +1,12 @@
+---
+- hosts: all
+  connection: local
+  
+  tasks:
+    - name: Install epel-release
+      yum:
+          name: epel-release
+
+    - name: Install varnish packages
+      yum:
+          name: varnish
